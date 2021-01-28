@@ -6,10 +6,11 @@ import dash_html_components as html
 import flask
 import os
 
-server = flask.Flask('app')
-server.secret_key = os.environ.get('secret_key', 'secret')
+# server = flask.Flask('app')
+# server.secret_key = os.environ.get('secret_key', 'secret')
 
-app = dash.Dash('app', server=server)
+app = dash.Dash('app')
+server = app.server
 
 app.layout = html.Div([html.H1("Simply Optimize")])
 
