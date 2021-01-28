@@ -7,6 +7,7 @@ import dash_html_components as html
 class SimplyOptimize:
     def __init__(self):
         self.app = dash.Dash(__name__)
+        self.server = self.app.server
         self.app.layout = self.build_layout()
 
     def build_layout(self):
@@ -16,5 +17,5 @@ class SimplyOptimize:
 
 if __name__ == '__main__':
     simply_optimize = SimplyOptimize()
-    server = simply_optimize.app.server
+    # server = simply_optimize.app.server
     simply_optimize.app.run_server()
