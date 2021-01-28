@@ -6,6 +6,7 @@ dash-table
 Flask
 Flask-Compress
 future
+gunicorn
 json5
 matplotlib
 numpy
