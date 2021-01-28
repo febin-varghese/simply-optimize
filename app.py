@@ -17,5 +17,5 @@ class SimplyOptimize:
 
 if __name__ == '__main__':
     simply_optimize = SimplyOptimize()
-    server = simply_optimize.app
+    server = simply_optimize.app.server
     simply_optimize.app.run_server()
