@@ -1,1 +1,1 @@
-web: gunicorn app:simply_optimize
+web: gunicorn app:server
