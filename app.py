@@ -3,17 +3,18 @@ import dash
 # import dash_core_components as dcc
 import dash_html_components as html
 
-import flask
-import os
 
-# server = flask.Flask('app')
-# server.secret_key = os.environ.get('secret_key', 'secret')
+class SimplyOptimize:
+    def __init__(self):
+        self.app = dash.Dash()
+        self.app.layout = self.build_layout()
 
-app = dash.Dash('app')
-server = app.server
-
-app.layout = html.Div([html.H1("Simply Optimize")])
+    def build_layout(self):
+        layout = html.Div([html.H1("Simply Optimize")])
+        return layout
 
 
 if __name__ == '__main__':
-    app.run_server()
+    simply_optimize = SimplyOptimize()
+    server = simply_optimize.app.server
+    simply_optimize.app.run_server()
