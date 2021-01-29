@@ -53,6 +53,51 @@ class Ackley:
         return self.figure
 
 
+class Rastrigin:
+    def __init__(self):
+        """
+        2D Rastrigin function
+        """
+        self.name = "Rastrigin"
+        self.global_min = 0.0
+        self.global_min_parameters = (0, 0)
+        self.upper_limit = 5.12
+        self.lower_limit = -5.12
+        self.figure = go.Figure()
+
+    def calculate(self, X):
+        x1 = X[0]
+        x2 = X[1]
+        d1 = x1 * x1 - 10 * np.cos(2 * np.pi * x1)
+        d2 = x2 * x2 - 10 * np.cos(2 * np.pi * x2)
+        value = 10 * 2 + d1 + d2
+        return value
+
+    def gradient(self, X: np.ndarray):
+        """
+        Gradient of the Rastrigin function
+        :param X: 2D point
+        :return: Gradient
+        """
+        def xi_grad(x):
+            return 2 * x + 2 * np.pi * 10 * np.sin(2*np.pi*x)
+        x1 = X[0]
+        x2 = X[1]
+        x1_grad = xi_grad(x1)
+        x2_grad = xi_grad(x2)
+        gradient = [x1_grad, x2_grad]
+        return np.array(gradient)
+
+    def plot(self):
+        x = np.linspace(self.lower_limit, self.upper_limit, 100)
+        y = np.linspace(self.lower_limit, self.upper_limit, 100)
+        xgrid, ygrid = np.meshgrid(x, y)
+        zgrid = self.calculate([xgrid, ygrid])
+        self.figure.add_trace(go.Contour(x=x, y=y, z=zgrid))
+        self.figure.layout.autosize = True
+        return self.figure
+
+
 class Sphere:
     def __init__(self):
         """
@@ -90,4 +135,4 @@ class Sphere:
 
 
 def available_functions():
-    return {"Ackley": Ackley, "Sphere": Sphere}
+    return {"Ackley": Ackley, "Rastrigin": Rastrigin, "Sphere": Sphere}

@@ -2,7 +2,7 @@ import dash
 from dash.dependencies import Input, Output
 
 # User defined modules
-from app_layout import app_layout, set_plot_children, set_optimum_labels
+from app_layout import app_layout, set_plot_children
 from optimizers import optimize_function
 
 
