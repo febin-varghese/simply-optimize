@@ -1,0 +1,10 @@
+This file contains the tasks to complete
+
+Proper UI
+    Alignment
+    Title
+    figure labels
+    display number of iterations for optimization
+    animation of the optimization path
+Work on Rastrigin function
+Include further optimization algorithms
